@@ -1,3 +1,5 @@
+import { UserModel } from "./UserModel";
+
 export type StatutCompte = 'Actif' | 'Bloqué';
 export class Compte {
     public constructor(
@@ -40,5 +42,8 @@ export interface Client {
     nom: string;
     prenom: string;
 }
+// export interface Client extends UserModel {
+  
+// }
 
 export type CompteList = Compte[];

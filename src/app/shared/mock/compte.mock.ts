@@ -1,5 +1,6 @@
 
 import { Compte,CompteList } from '../../../model/compte';
+import USER_MOCK from '../../shared/mock/user.mock';
 const COMPTE_MOCK : CompteList= [
     new Compte(1, 'C00123456',new Date().toISOString().split('T')[0], 10000, 'Epargne', { id: 1, nom: 'Dupont', prenom: 'Jean' }),
     new Compte(2, 'C00123457',new Date().toISOString().split('T')[0], 5000, 'Cheque', { id: 2, nom: 'Martin', prenom: 'Sophie' }),

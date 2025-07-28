@@ -1,0 +1,122 @@
+<div class="container mt-4">
+       <div class="d-flex justify-content-between align-items-center mb-4">
+           <h1>Nouvelle transaction</h1>
+           <a href="account-details.html?id=C00123456" class="btn btn-outline-secondary">
+               <i class="fas fa-arrow-left me-2"></i>Retour au compte
+           </a>
+       </div>
+      
+       <div class="row">
+           <div class="col-md-4">
+               <!-- Informations du compte -->
+               <div class="card border-0 shadow-sm mb-4">
+                   <div class="card-body">
+                       <h5 class="card-title">Informations du compte</h5>
+                       <hr>
+                       <div class="account-info">
+                           <p><strong>N° Compte:</strong> <span class="text-primary">C00123456</span></p>
+                           <p><strong>Titulaire:</strong> Amadou Diallo</p>
+                           <p><strong>Type:</strong> <span class="badge bg-info">Épargne</span></p>
+                           <p><strong>Solde actuel:</strong> <span class="text-success fw-bold">1 250 000 FCFA</span></p>
+                           <p><strong>Statut:</strong> <span class="badge bg-warning">Bloqué (30j)</span></p>
+                           <p><strong>Date de déblocage:</strong> 15/04/2023</p>
+                       </div>
+                   </div>
+               </div>
+              
+               <!-- Règles de transaction -->
+               <div class="card border-0 shadow-sm mb-4">
+                   <div class="card-body">
+                       <h5 class="card-title">Règles de transaction</h5>
+                       <hr>
+                       <div class="transaction-rules">
+                           <div class="alert alert-warning">
+                               <i class="fas fa-exclamation-triangle me-2"></i>
+                               <strong>Compte Épargne:</strong> Les retraits sont bloqués jusqu'au 15/04/2023.
+                           </div>
+                           <p><small>Les comptes épargne ont une période de blocage durant laquelle les retraits ne sont pas autorisés.</small></p>
+                          
+                           <div class="alert alert-info mt-3">
+                               <i class="fas fa-info-circle me-2"></i>
+                               <strong>Compte Chèque:</strong> Frais de transaction de 0.8% sur chaque opération.
+                           </div>
+                           <p><small>Les comptes chèque sont soumis à des frais de transaction pour chaque dépôt ou retrait.</small></p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+          
+           <div class="col-md-8">
+               <!-- Formulaire de transaction -->
+               <div class="card border-0 shadow-sm">
+                   <div class="card-body">
+                       <h5 class="card-title">Détails de la transaction</h5>
+                       <hr>
+                      
+                       <form id="transactionForm">
+                           <div class="mb-3">
+                               <label for="transactionType" class="form-label">Type de transaction</label>
+                               <select class="form-select" id="transactionType" required>
+                                   <option value="" selected disabled>Sélectionner un type</option>
+                                   <option value="deposit">Dépôt</option>
+                                   <option value="withdrawal" disabled>Retrait (Bloqué)</option>
+                               </select>
+                               <div class="form-text text-danger" id="typeError"></div>
+                           </div>
+                          
+                           <div class="mb-3">
+                               <label for="amount" class="form-label">Montant (FCFA)</label>
+                               <input type="number" class="form-control" id="amount" placeholder="Entrez le montant" min="1000" required>
+                               <div class="form-text">Montant minimum: 1 000 FCFA</div>
+                           </div>
+                          
+                           <div class="mb-3">
+                               <label for="description" class="form-label">Description</label>
+                               <textarea class="form-control" id="description" rows="3" placeholder="Description de la transaction"></textarea>
+                           </div>
+                          
+                           <div class="mb-3">
+                               <label for="transactionDate" class="form-label">Date de la transaction</label>
+                               <input type="date" class="form-control" id="transactionDate" required>
+                           </div>
+                          
+                           <div class="mb-3">
+                               <label for="agent" class="form-label">Agent / Vendeur</label>
+                               <select class="form-select" id="agent" required>
+                                   <option value="" selected disabled>Sélectionner un agent</option>
+                                   <option value="1">Moussa Sall</option>
+                                   <option value="2">Fatou Diop</option>
+                                   <option value="3">Ousmane Ndiaye</option>
+                               </select>
+                           </div>
+                          
+                           <!-- Résumé de la transaction (apparaît après sélection du type et montant) -->
+                           <div class="card bg-light mb-4 d-none" id="transactionSummary">
+                               <div class="card-body">
+                                   <h6 class="card-title">Résumé de la transaction</h6>
+                                   <div class="row">
+                                       <div class="col-md-6">
+                                           <p><strong>Type:</strong> <span id="summaryType">Dépôt</span></p>
+                                           <p><strong>Montant:</strong> <span id="summaryAmount">0</span> FCFA</p>
+                                           <p><strong>Frais:</strong> <span id="summaryFees">0</span> FCFA</p>
+                                       </div>
+                                       <div class="col-md-6">
+                                           <p><strong>Total:</strong> <span id="summaryTotal">0</span> FCFA</p>
+                                           <p><strong>Nouveau solde:</strong> <span id="summaryNewBalance">1 250 000</span> FCFA</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                          
+                           <div class="d-grid gap-2">
+                               <button type="submit" class="btn btn-primary">Effectuer la transaction</button>
+                               <button type="button" class="btn btn-outline-secondary">Annuler</button>
+                           </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+

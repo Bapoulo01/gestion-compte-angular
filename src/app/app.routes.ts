@@ -3,6 +3,8 @@ import { CompteListe } from './pages/compte-liste/compte-liste';
 import { CompteDetail } from './pages/compte-detail/compte-detail';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { NewCompte } from './pages/new-compte/new-compte';
+import { NewTransaction } from './pages/new-transaction/new-transaction';
+import { NotFoundPage } from './shared/pages/not-found-page/not-found-page';
 
 export const routes: Routes = [
     {
@@ -22,8 +24,16 @@ export const routes: Routes = [
         component: NewCompte
     },
     {
+        path:'new-transaction',
+        component: NewTransaction
+    },
+    {
         path:'',
         redirectTo: '/comptes',
         pathMatch: 'full'
+    },
+    {
+        path:'**',
+        component: NotFoundPage
     }
 ];
