@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 
-
 @Component({
-  selector: 'app-root',
+  selector: 'app-security',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-}) 
-export class App {
-  title="Gestion de Compte";
+  templateUrl: './security.html',
+  styleUrl: './security.css'
+})
+export class Security {
+
 }

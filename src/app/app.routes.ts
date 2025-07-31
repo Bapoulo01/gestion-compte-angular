@@ -1,35 +1,61 @@
 import { Routes } from '@angular/router';
-import { CompteListe } from './pages/compte-liste/compte-liste';
-import { CompteDetail } from './pages/compte-detail/compte-detail';
-import { Dashboard } from './pages/dashboard/dashboard';
-import { NewCompte } from './pages/new-compte/new-compte';
-import { NewTransaction } from './pages/new-transaction/new-transaction';
+import { CompteListe } from './pages/compte/compte-liste/compte-liste';
+import { CompteDetail } from './pages/compte/compte-detail/compte-detail';
+import { Dashboard } from './pages/compte/dashboard/dashboard';
+import { NewCompte } from './pages/compte/new-compte/new-compte';
+import { NewTransaction } from './pages/compte/new-transaction/new-transaction';
 import { NotFoundPage } from './shared/pages/not-found-page/not-found-page';
+import { Login } from './pages/security/login/login';
+import { Security } from './pages/security/security';
+import { CompteComponent } from './pages/compte/compte';
 
 export const routes: Routes = [
     {
-        path:'comptes',
-        component: CompteListe
+        path:'compte',
+        component: CompteComponent,
+        children: 
+        [
+            {
+            path:'comptes',
+            component: CompteListe
+            },
+            {
+            path:'comptes/:numero/details',
+            component: CompteDetail
+            },
+            {
+            path:'dashboard',
+            component: Dashboard
+            },
+            {
+                path:'new-compte',
+                component: NewCompte
+            },
+            {
+                path:'new-transaction',
+                component: NewTransaction
+            },
+            {
+            path:'',
+            redirectTo: '/compte/comptes',
+            pathMatch: 'full'
+            },
+        ]
     },
     {
-        path:'comptes/:numero/details',
-        component: CompteDetail
-    },
-    {
-        path:'dashboard',
-        component: Dashboard
-    },
-    {
-        path:'new-compte',
-        component: NewCompte
-    },
-    {
-        path:'new-transaction',
-        component: NewTransaction
+        path:'security',
+        component: Security,
+        children:
+        [
+            {
+                path:'login',
+                component: Login
+            },
+        ]
     },
     {
         path:'',
-        redirectTo: '/comptes',
+        redirectTo: '/security/login',
         pathMatch: 'full'
     },
     {

@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import COMPTE_MOCK from '../../shared/mock/compte.mock';
-import { Compte, CompteList } from '../../../model/compte';
+import COMPTE_MOCK from '../../../shared/mock/compte.mock';
+import { Compte, CompteList } from '../../../../model/compte'
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

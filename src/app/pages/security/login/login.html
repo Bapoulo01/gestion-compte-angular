@@ -1,0 +1,53 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+       <div class="card login-card border-0 shadow-sm" style="width: 400px;">
+           <div class="card-body p-4 p-md-5">
+               <div class="text-center mb-4">
+                   <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                   <h2 class="fw-bold">BankManager</h2>
+                   <p class="text-muted small">Système de Gestion de Comptes</p>
+               </div>
+              
+               <h3 class="text-center mb-4">Connexion</h3>
+              
+               <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+                   <div class="mb-3">
+                       <label for="username" class="form-label">Identifiant</label>
+                       <input formControlName="email" type="text" class="form-control" id="email" placeholder="Entrez votre identifiant">
+                       @if(formLogin.get('email')?.touched && formLogin.get('email')?.dirty) {
+                        @if(formLogin.get('email')?.errors?.['required']) {
+                           <div class="text-danger">Le champ est obligatoire.</div>
+                        } 
+                        @if(formLogin.get('email')?.errors?.['email']) {
+                           <div class="text-danger">Le champ doit etre un email.</div>
+                        }
+                    }
+                   </div>
+                  
+                   <div class="mb-3">
+                       <label for="password" class="form-label">Mot de passe</label>
+                       <input formControlName="password" type="password" class="form-control" placeholder="Entrez votre mot de passe">
+                        @if(formLogin.get('password')?.touched && formLogin.get('password')?.dirty) {
+                            @if(formLogin.get('email')?.errors?.['required']) {
+                           <div class="text-danger">Le champ est obligatoire.</div>
+                        } 
+                        @if(formLogin.get('password')?.errors?.['minlength']) {
+                           <div class="text-danger">Le champ doit contenir au moins 5 caractere.</div>
+                        }
+                          @if(formLogin.get('password')?.errors?.['maxlength']) {
+                           <div class="text-danger">Le champ ne doit pas depasse 10 caractere.</div>
+                        }
+                    }
+                   </div>
+                  
+                   <div class="text-end mb-3">
+                       <a href="#" class="text-decoration-none small text-primary">Mot de passe oublié?</a>
+                   </div>
+                  
+                   <div class="d-grid gap-2">
+                       <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid" >Se connecter</button>
+                   </div>
+               </form>
+           </div>
+       </div>
+   </div>
+

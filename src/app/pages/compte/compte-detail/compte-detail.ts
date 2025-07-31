@@ -1,7 +1,8 @@
-import { Compte } from './../../../model/compte';
+import { Compte } from '../../../../model/compte';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import COMPTE_MOCK from '../../shared/mock/compte.mock';
+import COMPTE_MOCK from '../../../shared/mock/compte.mock';
+
 
 @Component({
   selector: 'app-compte-detail',

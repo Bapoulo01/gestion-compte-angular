@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-
-
 @Component({
-  selector: 'app-root',
+  selector: 'app-compte',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-}) 
-export class App {
-  title="Gestion de Compte";
+  templateUrl: './compte.html',
+  styleUrl: './compte.css'
+})
+export class CompteComponent {
+
 }
